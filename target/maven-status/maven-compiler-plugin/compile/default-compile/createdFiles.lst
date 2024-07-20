@@ -1,0 +1,7 @@
+com/leedavis/Constants.class
+com/leedavis/DynamoDB/TagReads.class
+com/leedavis/DynamoDB/TagIDManager.class
+com/leedavis/Main.class
+com/leedavis/DynamoDB/DynamoDB.class
+com/leedavis/DynamoDB/TagRead.class
+com/leedavis/RFIDReader.class

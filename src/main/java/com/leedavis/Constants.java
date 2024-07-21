@@ -9,5 +9,4 @@ public class Constants {
 
   public static final long LOOP_TIME = 13 * 60 * 1000 + 5 * 1000 + 15 * 10;
   public static final long MAX_ERROR = 45 * 1000;
-  // 21 / 33
 }

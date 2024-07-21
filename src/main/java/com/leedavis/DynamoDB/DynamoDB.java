@@ -67,8 +67,6 @@ public class DynamoDB {
         long timeDifference = newTimestamp - previousTimestamp;
 
         if (timeDifference < Constants.LOOP_TIME - Constants.MAX_ERROR) {
-          System.out
-              .println("Tag " + readTag.id + " times are too close together; plate must have moved. Reseting timer.");
           DynamoDB.storeTagHistory(readTag.id, previousTimestamp, currentTag.getFirst());
           currentTag.timestamps.clear();
         }

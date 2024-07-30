@@ -34,6 +34,7 @@ public class DynamoDB {
         .build();
 
     var todaysHistory = getItem(Constants.HISTORY_TABLE_NAME, "date", date);
+
     if (todaysHistory == null) {
       putItemInTable(Constants.HISTORY_TABLE_NAME, Map.of(
           "date", AttributeValue.builder().s(date).build(),
@@ -82,7 +83,7 @@ public class DynamoDB {
       if (latestSight < currentTime - Constants.LOOP_TIME - Constants.MAX_ERROR) {
         System.out.println("ME: Tag " + currentTag.id + " has timed out.");
         DynamoDB.storeTagHistory(currentTag.id, latestSight, currentTag.getFirst());
-        currentTag.timestamps.clear(); // Source of dat bug
+        currentTag.timestamps.clear();
       }
     }
 
@@ -126,7 +127,17 @@ public class DynamoDB {
         .expressionAttributeValues(expressionAttributeValues)
         .build();
 
-    ddb.updateItem(updateItemRequest);
+    try {
+      ddb.updateItem(updateItemRequest);
+    } catch (ResourceNotFoundException e) {
+      System.err.format("Error: The Amazon DynamoDB table \"%s\" can't be found.\n", Constants.HISTORY_TABLE_NAME);
+      System.err.println("Be sure that it exists and that you've typed its name correctly!");
+      System.exit(1);
+    } catch (DynamoDbException e) {
+      System.err.println(e.getMessage());
+      System.exit(1);
+    }
+
   }
 
   // BASE FUNCTIONS \\

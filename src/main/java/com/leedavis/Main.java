@@ -5,8 +5,8 @@ public class Main {
   public static void main(String[] args) throws InterruptedException {
     // Start Reader
 
-    System.out.println("Boo");
-    // RFIDReader.start();
+    System.out.println(Constants.SLEEP_TIME);
+    RFIDReader.start();
 
     // DynamoDB.open();
 

@@ -48,8 +48,8 @@ public class DynamoDB {
   }
 
   public static void acceptReads(List<TagRead> readTags) {
-    if (readTags.size() == 0)
-      return;
+    // if (readTags.size() == 0)
+    // return;
 
     readTags.sort((tag1, tag2) -> {
       long time1 = tag1.getTimestamp();

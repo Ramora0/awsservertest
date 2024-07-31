@@ -95,6 +95,8 @@ public class RFIDReader {
       enforceEventChannelId();
       // Register the event so it actually goes off
       register();
+
+      System.out.println("V1.0");
     } catch (Exception e) {
       System.out.println("ME: Error: " + e.getMessage());
       e.printStackTrace();

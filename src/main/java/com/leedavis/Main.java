@@ -4,7 +4,9 @@ public class Main {
 
   public static void main(String[] args) throws InterruptedException {
     // Start Reader
-    RFIDReader.start();
+
+    System.out.println("Boo");
+    // RFIDReader.start();
 
     // DynamoDB.open();
 

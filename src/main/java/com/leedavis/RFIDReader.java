@@ -135,7 +135,6 @@ public class RFIDReader {
     String tagID = TagIDManager.getID(rfid);
     // String timestamp = info.getParameter(EventInfo.EVENT_TAG_ARRIVE_PARAMS.TIME);
     long timestamp = System.currentTimeMillis();
-    System.out.println("ME: " + timestamp + ": " + rfid + " -> " + tagID);
     // 231n
 
     if (tagID == null) {
@@ -155,6 +154,7 @@ public class RFIDReader {
     lastTagID = tagID;
     TagRead read = new TagRead(tagID, timestamp);
     tagsRead.put(tagID, read);
+    System.out.println("ME: " + timestamp + ": " + rfid + " -> " + tagID);
     System.out.println("ME: Tag: " + tagID + " (" + (consecutiveReads.getOrDefault(tagID, 0) + 1) + ")");
   }
 
@@ -190,10 +190,7 @@ public class RFIDReader {
     // System.out.println("ME: " + entry.getKey() + " -> " + entry.getValue());
     // }
 
-    DynamoDB.acceptReads(new ArrayList<>(tags.stream().filter(tag -> {
-      int count = consecutiveReads.getOrDefault(tag.getID(), 0);
-      return count < 3;
-    }).toList()));
+    DynamoDB.acceptReads(tags);
     tagsRead.clear();
   }
 

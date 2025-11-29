@@ -25,7 +25,6 @@ public class TagIDManager {
   }
 
   public static String getID(String tagID) {
-    return "1";
-    // return tagIDMap.get(tagID);
+    return tagIDMap.get(tagID);
   }
 }

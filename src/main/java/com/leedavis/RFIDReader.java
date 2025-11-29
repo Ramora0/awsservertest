@@ -76,10 +76,10 @@ public class RFIDReader {
 
   public static void launch(String ipAddress) {
     try {
-      // DynamoDB.open();
+      DynamoDB.open();
       System.out.println("ME: DynamoDB connection opened.");
       // Get the RFID to tagID mapping
-      // TagIDManager.loadTagIDs();
+      TagIDManager.loadTagIDs();
       System.out.println("ME: Tag IDs gotten");
 
       // Open the connection with the reader
@@ -190,10 +190,10 @@ public class RFIDReader {
     // System.out.println("ME: " + entry.getKey() + " -> " + entry.getValue());
     // }
 
-    // DynamoDB.acceptReads(new ArrayList<>(tags.stream().filter(tag -> {
-    // int count = consecutiveReads.getOrDefault(tag.getID(), 0);
-    // return count < 3;
-    // }).toList()));
+    DynamoDB.acceptReads(new ArrayList<>(tags.stream().filter(tag -> {
+      int count = consecutiveReads.getOrDefault(tag.getID(), 0);
+      return count < 3;
+    }).toList()));
     tagsRead.clear();
   }
 

@@ -68,6 +68,7 @@ public class DynamoDB {
         long timeDifference = newTimestamp - previousTimestamp;
 
         if (timeDifference < Constants.LOOP_TIME - Constants.MAX_ERROR) {
+          System.out.println("ME: Tag " + currentTag.id + " was too close together.");
           DynamoDB.storeTagHistory(readTag.id, previousTimestamp, currentTag.getFirst());
           currentTag.timestamps.clear();
         }

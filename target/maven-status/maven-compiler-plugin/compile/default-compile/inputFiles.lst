@@ -1,7 +1,7 @@
-/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/DynamoDB.java
-/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/RFIDReader.java
 /Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/Constants.java
+/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/DynamoDB.java
+/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/TagIDManager.java
+/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/TagRead.java
 /Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/TagReads.java
 /Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/Main.java
-/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/TagRead.java
-/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/DynamoDB/TagIDManager.java
+/Users/leedavis/coding/java/awsservertest/src/main/java/com/leedavis/RFIDReader.java

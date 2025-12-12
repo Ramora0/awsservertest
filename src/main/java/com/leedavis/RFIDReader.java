@@ -76,12 +76,6 @@ public class RFIDReader {
 
   public static void launch(String ipAddress) {
     try {
-      DynamoDB.open();
-      System.out.println("ME: DynamoDB connection opened.");
-      // Get the RFID to tagID mapping
-      TagIDManager.loadTagIDs();
-      System.out.println("ME: Tag IDs gotten");
-
       // Open the connection with the reader
       dataManager = new DataManager(DataManager.ConnectionTypes.SOCKET, ipAddress, 0);
       System.out.println("ME: Opening connection to RFID reader at " + ipAddress);
@@ -95,6 +89,12 @@ public class RFIDReader {
       enforceEventChannelId();
       // Register the event so it actually goes off
       register();
+
+      DynamoDB.open();
+      System.out.println("ME: DynamoDB connection opened.");
+      // Get the RFID to tagID mapping
+      TagIDManager.loadTagIDs();
+      System.out.println("ME: Tag IDs gotten");
 
       // System.out.println("V1.0");
     } catch (Exception e) {
